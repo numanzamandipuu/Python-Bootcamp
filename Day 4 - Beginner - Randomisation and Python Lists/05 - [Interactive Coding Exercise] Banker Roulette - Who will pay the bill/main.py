@@ -8,7 +8,7 @@ names = names_string.split(", ")
 import random
 
 length = len(names)
-number = random.randint(0 , length)
+number = random.randint(0 , length - 1)
 final_name = names[number]
 
 print(f"{final_name} is going to buy the meal today!")
