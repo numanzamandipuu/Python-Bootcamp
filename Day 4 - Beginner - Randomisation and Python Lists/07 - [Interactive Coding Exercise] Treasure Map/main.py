@@ -9,34 +9,11 @@ position = input("Where do you want to put the treasure? ")
 
 #Write your code below this row 👇
 
-pstn = int(position)
+horizontal = int(position[0])
+vertical = int(position[1])
 
-if pstn == 11 or pstn == 21 or pstn == 31:
-    if pstn == 11:
-        row1[0] = "X"
-    elif pstn == 21:
-        row1[1] = "X"
-    elif pstn == 31:
-        row1[2] = "X"
-
-elif pstn == 12 or pstn == 22 or pstn == 32:
-    if pstn == 12:
-        row2[0] = "X"
-    elif pstn == 22:
-        row2[1] = "X"
-    elif pstn == 32:
-        row2[2] = "X"
-
-elif pstn == 13 or pstn == 23 or pstn == 33:
-    if pstn == 13:
-        row3[0] = "X"
-    elif pstn == 23:
-        row3[1] = "X"
-    elif pstn == 33:
-        row3[2] = "X"
-
-else:
-    print("Please type a valid number!")
+selected_row = maps[vertical - 1]
+selected_row[horizontal - 1] = "X"
 
 #Write your code above this row 👆
 
