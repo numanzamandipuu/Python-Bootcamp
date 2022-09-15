@@ -83,10 +83,9 @@ while not end_of_game:
 
     if guess not in chosen_word:
         lives -= 1
-
-    if lives == 0:
-        print("You Lose.")
-        break
+        if lives == 0:
+            end_of_game = True
+            print("You Lose.")
 
     #Join all the elements in the list and turn it into a String.
     print(f"{' '.join(display)}")
