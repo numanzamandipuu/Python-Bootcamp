@@ -20,3 +20,6 @@ while display != list(chosen_word):
            display[position] = letter
 
     print(display)
+
+if display == list(chosen_word):
+    print("You Win.")
