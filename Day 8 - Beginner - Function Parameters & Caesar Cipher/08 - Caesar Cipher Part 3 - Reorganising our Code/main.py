@@ -10,28 +10,24 @@ else:
 
 
 def ceasar(direction_parameter, text_parameter, shift_parameter):
+    cipher_text = ""
 
-    if direction_parameter == "encode":
-        cipher_text = ""
-        for n in text_parameter:
-            text_position = alphabet.index(n)
+    for n in text_parameter:
+        text_position = alphabet.index(n)
+
+        if direction_parameter == "encode":
             new_position = text_position + shift_parameter
             if new_position > 25:
                 new_position -= 26
-            new_letter = alphabet[new_position]
-            cipher_text += new_letter
-        print(f"The encoded text is {cipher_text}")
-    
-    elif direction_parameter == "decode":
-        cipher_text = ""
-        for n in text_parameter:
-            text_position = alphabet.index(n)
+
+        elif direction_parameter == "decode":
             new_position = text_position - shift_parameter
             if new_position < 0:
                 new_position += 26
-            new_letter = alphabet[new_position]
-            cipher_text += new_letter
-        print(f"The decoded text is {cipher_text}")
+                
+        new_letter = alphabet[new_position]
+        cipher_text += new_letter
+    print(f"The {direction_parameter}d text is {cipher_text}")
 
 if direction == "encode" or direction == "decode":
     ceasar(direction_parameter = direction, text_parameter = text, shift_parameter = shift)
