@@ -1,33 +1,21 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+text = input("Type your message:\n").lower()
+shift = int(input("Type the shift number:\n"))
 
-if direction == "encode" or direction == "decode":
-    text = input("Type your message:\n").lower()
-    shift = int(input("Type the shift number:\n"))
-else:
-    print("Please pick a valid keyword.")
+#TODO-1: Combine the encrypt() and decrypt() functions into a single function called caesar(). 
+
+def caesar(start_text, shift_amount, cipher_direction):
+  end_text = ""
+  if cipher_direction == "decode":
+      shift_amount *= -1
+  for letter in start_text:
+    position = alphabet.index(letter)
+    new_position = position + shift_amount
+    end_text += alphabet[new_position]
+  print(f"Here's the {direction}d result: {end_text}")
 
 
-def ceasar(direction_parameter, text_parameter, shift_parameter):
-    cipher_text = ""
-
-    for n in text_parameter:
-        text_position = alphabet.index(n)
-
-        if direction_parameter == "encode":
-            new_position = text_position + shift_parameter
-            if new_position > 25:
-                new_position -= 26
-
-        elif direction_parameter == "decode":
-            new_position = text_position - shift_parameter
-            if new_position < 0:
-                new_position += 26
-                
-        new_letter = alphabet[new_position]
-        cipher_text += new_letter
-    print(f"The {direction_parameter}d text is {cipher_text}")
-
-if direction == "encode" or direction == "decode":
-    ceasar(direction_parameter = direction, text_parameter = text, shift_parameter = shift)
+#TODO-2: Call the caesar() function, passing over the 'text', 'shift' and 'direction' values.
+caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
