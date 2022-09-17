@@ -23,11 +23,11 @@ def ceasar(direction_parameter, text_parameter, shift_parameter):
     print(f"The {direction_parameter}d text is {cipher_text}")
 
 
+import art
+print(art.logo)
+
 cipher_end = False
 while cipher_end == False:
-
-    import art
-    print(art.logo)
 
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
