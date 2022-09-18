@@ -1,29 +1,27 @@
 import os
+import art
 clear = lambda: os.system("cls")
-from art import logo
-print(logo)
 
-bids = {}
-bidding_finished = False
+print(art.logo)
+auction = {}
+stop_auction = False
+question = "yes"
 
-def find_highest_bidder(bidding_record):
-  highest_bid = 0
-  winner = ""
-  # bidding_record = {"Angela": 123, "James": 321}
-  for bidder in bidding_record:
-    bid_amount = bidding_record[bidder]
-    if bid_amount > highest_bid: 
-      highest_bid = bid_amount
-      winner = bidder
-  print(f"The winner is {winner} with a bid of ${highest_bid}")
+while stop_auction == False:
+    if question == "yes":
+        key = input("What is your name?: ")
+        value = int(input("What is your bid?: $"))
+        auction[key] = value
+        question = input("Are there any other bidders? Type 'yes or 'no'.\n").lower()
+        if question == "yes":
+            clear()     
+    elif question == "no":
+        stop_auction = True
+    else:
+        print("You've picked an invalid keyword.\nEnd of the auction.")
+        stop_auction = True
 
-while not bidding_finished:
-  name = input("What is your name?: ")
-  price = int(input("What is your bid?: $"))
-  bids[name] = price
-  should_continue = input("Are there any other bidders? Type 'yes or 'no'.\n")
-  if should_continue == "no":
-    bidding_finished = True
-    find_highest_bidder(bids)
-  elif should_continue == "yes":
-    clear()
+winner = max(auction, key=auction.get)
+amount = auction[winner]
+
+print(f"The winner is {winner} with a bid of ${amount}")
