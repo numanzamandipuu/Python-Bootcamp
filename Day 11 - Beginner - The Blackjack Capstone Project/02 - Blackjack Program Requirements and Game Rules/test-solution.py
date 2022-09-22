@@ -1,5 +1,6 @@
 import os
 import random
+import art
 clear = lambda: os.system("cls")
 
 def main_game():
@@ -32,6 +33,7 @@ def main_game():
     if yn_input == "y":
         looping = True
     else:
+        print("Please pick a valid keyword.")
         looping = False
 
 
@@ -83,6 +85,7 @@ while start:
     start_input = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
     if start_input == "y":
         clear()
+        print(art.logo)
         main_game()
     elif start_input == "n":
         start = False
