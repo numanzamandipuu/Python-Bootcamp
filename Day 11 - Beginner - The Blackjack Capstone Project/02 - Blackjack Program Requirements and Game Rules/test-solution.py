@@ -32,6 +32,8 @@ def main_game():
     yn_input = input("Type 'y' to get another card, type 'n' to pass: ")
     if yn_input == "y":
         looping = True
+    elif yn_input == "n":
+        looping = False
     else:
         print("Please pick a valid keyword.")
         looping = False
