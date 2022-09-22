@@ -1,5 +1,6 @@
 import os
 import random
+from traceback import StackSummary
 clear = lambda: os.system("cls")
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
@@ -23,7 +24,6 @@ def print_function():
 
 print_function()
 yn_input = input("Type 'y' to get another card, type 'n' to pass: ")
-
 if yn_input == "y":
     looping = True
 else:
@@ -31,13 +31,24 @@ else:
 
 while looping == True:
     add_card = random.sample(cards, 1)
+    if add_card == [11] and sum(my_card) > 10:
+        add_card = [1]
     my_card.extend(add_card)
     print_function()
+    if sum(my_card) > 21:
+        break
     yn_input = input("Type 'y' to get another card, type 'n' to pass: ")
     if yn_input == "y":
         looping = True
-    else:
+    elif yn_input == "n":
         looping = False
+    else:
+        print("Please pick a valid keyword.")
+        looping = False
+
+print(f"Your final hand: {my_card}, final score: {sum(my_card)}")
+print(f"Computer's final hand: {computer_card}, final score: {computer_card_sum}")
+
 
 
 
