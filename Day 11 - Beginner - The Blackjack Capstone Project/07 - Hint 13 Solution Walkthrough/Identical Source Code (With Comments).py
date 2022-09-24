@@ -33,8 +33,9 @@
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
 import random
-from replit import clear
+import os
 from art import logo
+clear = lambda: os.system("cls")
 
 def deal_card():
   """Returns a random card from the deck."""
