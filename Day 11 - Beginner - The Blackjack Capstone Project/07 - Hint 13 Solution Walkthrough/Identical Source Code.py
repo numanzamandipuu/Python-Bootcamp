@@ -9,7 +9,6 @@ def deal_card():
   card = random.choice(cards)
   return card
 
-
 def calculate_score(cards):
   """Take a list of cards and return the score calculated from the cards"""
 
@@ -23,9 +22,7 @@ def calculate_score(cards):
 def compare(user_score, computer_score):
   if user_score > 21 and computer_score > 21:
     return "You went over. You lose 😤"
-
-
-  if user_score == computer_score:
+  elif user_score == computer_score:
     return "Draw 🙃"
   elif computer_score == 0:
     return "Lose, opponent has Blackjack 😱"
@@ -51,7 +48,6 @@ def play_game():
   for _ in range(2):
     user_cards.append(deal_card())
     computer_cards.append(deal_card())
-
 
   while not is_game_over:
     user_score = calculate_score(user_cards)
