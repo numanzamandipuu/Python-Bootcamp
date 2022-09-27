@@ -1,51 +1,61 @@
-from random import randint
-from art import logo
+from game_data import data
+import random
+from art import logo, vs
+import os
+clear = lambda: os.system("cls")
 
-EASY_LEVEL_TURNS = 10
-HARD_LEVEL_TURNS = 5
+def get_random_account():
+  """Get data from random account"""
+  return random.choice(data)
 
+def format_data(account):
+  """Format account into printable format: name, description and country"""
+  name = account["name"]
+  description = account["description"]
+  country = account["country"]
+  # print(f'{name}: {account["follower_count"]}')
+  return f"{name}, a {description}, from {country}"
 
-def check_answer(guess, answer, turns):
-  """checks answer against guess. Returns the number of turns remaining."""
-  if guess > answer:
-    print("Too high.")
-    return turns - 1
-  elif guess < answer:
-    print("Too low.")
-    return turns - 1
+def check_answer(guess, a_followers, b_followers):
+  """Checks followers against user's guess 
+  and returns True if they got it right.
+  Or False if they got it wrong.""" 
+  if a_followers > b_followers:
+    return guess == "a"
   else:
-    print(f"You got it! The answer was {answer}.")
+    return guess == "b"
 
-
-def set_difficulty():
-  level = input("Choose a difficulty. Type 'easy' or 'hard': ")
-  if level == "easy":
-    return EASY_LEVEL_TURNS
-  else:
-    return HARD_LEVEL_TURNS
 
 def game():
   print(logo)
+  score = 0
+  game_should_continue = True
+  account_a = get_random_account()
+  account_b = get_random_account()
 
-  print("Welcome to the Number Guessing Game!")
-  print("I'm thinking of a number between 1 and 100.")
-  answer = randint(1, 100)
-  print(f"Pssst, the correct answer is {answer}") 
+  while game_should_continue:
+    account_a = account_b
+    account_b = get_random_account()
 
-  turns = set_difficulty()
+    while account_a == account_b:
+      account_b = get_random_account()
 
-  guess = 0
-  while guess != answer:
-    print(f"You have {turns} attempts remaining to guess the number.")
+    print(f"Compare A: {format_data(account_a)}.")
+    print(vs)
+    print(f"Against B: {format_data(account_b)}.")
+    
+    guess = input("Who has more followers? Type 'A' or 'B': ").lower()
+    a_follower_count = account_a["follower_count"]
+    b_follower_count = account_b["follower_count"]
+    is_correct = check_answer(guess, a_follower_count, b_follower_count)
 
-    guess = int(input("Make a guess: "))
-    turns = check_answer(guess, answer, turns)
-
-    if turns == 0:
-      print("You've run out of guesses, you lose.")
-      return
-    elif guess != answer:
-      print("Guess again.")
-
+    clear()
+    print(logo)
+    if is_correct:
+      score += 1
+      print(f"You're right! Current score: {score}.")
+    else:
+      game_should_continue = False
+      print(f"Sorry, that's wrong. Final score: {score}")
 
 game()
