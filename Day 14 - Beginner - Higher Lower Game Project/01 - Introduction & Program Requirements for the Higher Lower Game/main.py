@@ -4,7 +4,6 @@ import art
 import os
 clear = lambda: os.system("cls")
 
-
 print(art.logo)
 game_over = False
 score = 0
@@ -13,13 +12,12 @@ compare_A_number = random.choice(list_of_index)
 
 while game_over == False:
 
-
+    # Setting up the 2nd dictionary
     compare_B_list = []
     for n in list_of_index:
         if n != compare_A_number:
             compare_B_list.append(n)
     compare_B_number = random.choice(compare_B_list)
-
 
     # All the functions
     def compare_A(key):
@@ -33,14 +31,18 @@ while game_over == False:
             return "a"
         elif compare_A('follower_count') < compare_B('follower_count'):
             return "b"
-
+    
+    # Setting up the text that I'll print
     Compare_A = f"{compare_A('name')}, a {compare_A('description')}, from {compare_A('country')}."
     Compare_B = f"{compare_B('name')}, a {compare_B('description')}, from {compare_B('country')}."
 
+    # Printing everything
     print(f"Compare A: {Compare_A}")
     print(art.vs)
     print(f"Against B: {Compare_B}")
     compare_input = input("Who has more followers? Type 'A' or 'B': ").lower()
+
+    # Game result
     if comparison() == compare_input:
         score += 1
         clear()
