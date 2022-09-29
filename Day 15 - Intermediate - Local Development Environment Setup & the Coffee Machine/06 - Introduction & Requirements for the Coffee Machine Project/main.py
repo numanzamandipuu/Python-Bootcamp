@@ -1,7 +1,5 @@
 from data import MENU, resources
 
-# print(MENU[command]["cost"])
-# print(MENU["espresso"]["ingredients"]["coffee"])
 
 # Creating a list for report
 water_amount = resources["water"]
