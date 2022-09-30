@@ -44,17 +44,17 @@ while coffee_off == False:
     
     if command == "espresso" or command == "latte" or command == "cappuccino":
 
-        if command != "espresso" and MENU[command]["ingredients"]["milk"] > milk_amount:
-            print(f"Sorry there is not enough milk.")
-        elif MENU[command]["ingredients"]["water"] > water_amount:
+        if MENU[command]["ingredients"]["water"] > water_amount:
             print(f"Sorry there is not enough water.")
+        elif command != "espresso" and MENU[command]["ingredients"]["milk"] > milk_amount:
+            print(f"Sorry there is not enough milk.")
         elif MENU[command]["ingredients"]["coffee"] > coffee_amount:
             print(f"Sorry there is not enough coffee.") 
 
         else:
             cash_back = coins(command)
             if cash_back > 0:
-                print(f"Here is ${cash_back} in change.")
+                print(f"Here is ${cash_back} in change.\nHere is your {command} ☕️. Enjoy!")
             else:
                 print("Sorry that's not enough money. Money refunded.")
 
