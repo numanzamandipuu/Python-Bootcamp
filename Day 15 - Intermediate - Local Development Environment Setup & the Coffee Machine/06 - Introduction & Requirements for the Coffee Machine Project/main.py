@@ -1,5 +1,8 @@
 from data import MENU, resources
 
+# todo cash problem must be solved #
+# insufficient problem must be solved.
+
 
 # Creating a list for report
 water_amount = resources["water"]
@@ -23,8 +26,6 @@ def coins(command):
 
 while coffee_off == False:
 
-    command = input("What would you like? (espresso/latte/cappuccino): ").lower()
-
     report_list = [
         f"Water: {water_amount}ml",
         f"Milk: {milk_amount}ml",
@@ -32,9 +33,15 @@ while coffee_off == False:
         f"Money: ${money}"
     ]
 
+    command = input("What would you like? (espresso/latte/cappuccino): ").lower()
+
     if command == "espresso" or command == "latte" or command == "cappuccino":
 
-        print(f"Here is ${coins(command)} in change.")
+        cash_back = coins(command)
+        if cash_back > 0:
+            print(f"Here is ${cash_back} in change.")
+        else:
+            print("Sorry that's not enough money. Money refunded.")
 
         water_amount -= MENU[command]["ingredients"]["water"]
         if command != "espresso":
