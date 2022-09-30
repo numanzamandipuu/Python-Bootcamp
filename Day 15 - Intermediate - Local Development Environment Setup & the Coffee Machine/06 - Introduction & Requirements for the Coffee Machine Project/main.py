@@ -22,14 +22,6 @@ def coins(command):
     total = quarters + dimes + nickles + pennies
     return round(total - MENU[command]["cost"], 2)
 
-# def ingredients_quantity(command):
-#     if MENU[command]["ingredients"]["milk"] > milk_amount:
-#         print(f"Sorry there is not enough milk.")
-#     elif MENU[command]["ingredients"]["water"] > water_amount:
-#         print(f"Sorry there is not enough water.")
-#     elif MENU[command]["ingredients"]["coffee"] > coffee_amount:
-#         print(f"Sorry there is not enough coffee.")
-
 
 while coffee_off == False:
 
