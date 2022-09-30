@@ -22,6 +22,13 @@ def coins(command):
     total = quarters + dimes + nickles + pennies
     return round(total - MENU[command]["cost"], 2)
 
+# def ingredients_quantity(command):
+#     if MENU[command]["ingredients"]["milk"] > milk_amount:
+#         print(f"Sorry there is not enough milk.")
+#     elif MENU[command]["ingredients"]["water"] > water_amount:
+#         print(f"Sorry there is not enough water.")
+#     elif MENU[command]["ingredients"]["coffee"] > coffee_amount:
+#         print(f"Sorry there is not enough coffee.")
 
 
 while coffee_off == False:
@@ -34,20 +41,28 @@ while coffee_off == False:
     ]
 
     command = input("What would you like? (espresso/latte/cappuccino): ").lower()
-
+    
     if command == "espresso" or command == "latte" or command == "cappuccino":
 
-        cash_back = coins(command)
-        if cash_back > 0:
-            print(f"Here is ${cash_back} in change.")
-        else:
-            print("Sorry that's not enough money. Money refunded.")
+        if command != "espresso" and MENU[command]["ingredients"]["milk"] > milk_amount:
+            print(f"Sorry there is not enough milk.")
+        elif MENU[command]["ingredients"]["water"] > water_amount:
+            print(f"Sorry there is not enough water.")
+        elif MENU[command]["ingredients"]["coffee"] > coffee_amount:
+            print(f"Sorry there is not enough coffee.") 
 
-        water_amount -= MENU[command]["ingredients"]["water"]
-        if command != "espresso":
-            milk_amount -= MENU[command]["ingredients"]["milk"]
-        coffee_amount -= MENU[command]["ingredients"]["coffee"]
-        money += MENU[command]["cost"]
+        else:
+            cash_back = coins(command)
+            if cash_back > 0:
+                print(f"Here is ${cash_back} in change.")
+            else:
+                print("Sorry that's not enough money. Money refunded.")
+
+            water_amount -= MENU[command]["ingredients"]["water"]
+            if command != "espresso":
+                milk_amount -= MENU[command]["ingredients"]["milk"]
+            coffee_amount -= MENU[command]["ingredients"]["coffee"]
+            money += MENU[command]["cost"]
 
     elif command == "report":
         for n in report_list:
