@@ -1,9 +1,5 @@
 from data import MENU, resources
 
-# todo cash problem must be solved #
-# insufficient problem must be solved.
-
-
 # Creating a list for report
 water_amount = resources["water"]
 milk_amount = resources["milk"]
@@ -63,4 +59,3 @@ while coffee_off == False:
         exit()
     else:
         print("Please pick a valid keyword.")
-
