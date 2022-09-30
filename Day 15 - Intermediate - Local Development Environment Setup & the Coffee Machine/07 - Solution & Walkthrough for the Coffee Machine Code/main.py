@@ -1,6 +1,5 @@
 from data import MENU, resources
 
-
 # Creating a list for report
 water_amount = resources["water"]
 milk_amount = resources["milk"]
@@ -20,11 +19,8 @@ def coins(command):
     return round(total - MENU[command]["cost"], 2)
 
 
-
 while coffee_off == False:
-
-    command = input("What would you like? (espresso/latte/cappuccino): ").lower()
-
+    # Creating the report list
     report_list = [
         f"Water: {water_amount}ml",
         f"Milk: {milk_amount}ml",
@@ -32,15 +28,32 @@ while coffee_off == False:
         f"Money: ${money}"
     ]
 
+    command = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    
     if command == "espresso" or command == "latte" or command == "cappuccino":
+        
+        # Checking the insufficiency of ingredients
+        if MENU[command]["ingredients"]["water"] > water_amount:
+            print(f"Sorry there is not enough water.")
+        elif command != "espresso" and MENU[command]["ingredients"]["milk"] > milk_amount:
+            print(f"Sorry there is not enough milk.")
+        elif MENU[command]["ingredients"]["coffee"] > coffee_amount:
+            print(f"Sorry there is not enough coffee.") 
 
-        print(f"Here is ${coins(command)} in change.")
+        # Main process
+        else:
+            cash_back = coins(command)
+            if cash_back > 0:
+                print(f"Here is ${cash_back} in change.\nHere is your {command} ☕️. Enjoy!")
+            else:
+                print("Sorry that's not enough money. Money refunded.")
 
-        water_amount -= MENU[command]["ingredients"]["water"]
-        if command != "espresso":
-            milk_amount -= MENU[command]["ingredients"]["milk"]
-        coffee_amount -= MENU[command]["ingredients"]["coffee"]
-        money += MENU[command]["cost"]
+            # Adjusting the ingredients
+            water_amount -= MENU[command]["ingredients"]["water"]
+            if command != "espresso":
+                milk_amount -= MENU[command]["ingredients"]["milk"]
+            coffee_amount -= MENU[command]["ingredients"]["coffee"]
+            money += MENU[command]["cost"]
 
     elif command == "report":
         for n in report_list:
@@ -49,4 +62,3 @@ while coffee_off == False:
         exit()
     else:
         print("Please pick a valid keyword.")
-
