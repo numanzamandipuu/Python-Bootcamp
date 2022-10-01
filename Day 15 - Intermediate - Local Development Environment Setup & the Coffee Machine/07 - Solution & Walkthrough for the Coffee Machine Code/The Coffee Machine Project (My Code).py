@@ -1,6 +1,5 @@
 from data import MENU, resources
 
-# Creating a list for report
 water_amount = resources["water"]
 milk_amount = resources["milk"]
 coffee_amount = resources["coffee"]
@@ -8,7 +7,6 @@ money = 0
 coffee_off = False
 
 
-# Function for coin transaction
 def coins(command):
     print("Please insert coins.")
     quarters = int(input("how many quarters?: ")) * .25
@@ -20,7 +18,7 @@ def coins(command):
 
 
 while coffee_off == False:
-    # Creating the report list
+
     report_list = [
         f"Water: {water_amount}ml",
         f"Milk: {milk_amount}ml",
@@ -32,7 +30,6 @@ while coffee_off == False:
     
     if command == "espresso" or command == "latte" or command == "cappuccino":
         
-        # Checking the insufficiency of ingredients
         if MENU[command]["ingredients"]["water"] > water_amount:
             print(f"Sorry there is not enough water.")
         elif command != "espresso" and MENU[command]["ingredients"]["milk"] > milk_amount:
@@ -40,7 +37,6 @@ while coffee_off == False:
         elif MENU[command]["ingredients"]["coffee"] > coffee_amount:
             print(f"Sorry there is not enough coffee.") 
 
-        # Main process
         else:
             cash_back = coins(command)
             if cash_back > 0:
@@ -48,7 +44,6 @@ while coffee_off == False:
             else:
                 print("Sorry that's not enough money. Money refunded.")
 
-            # Adjusting the ingredients
             water_amount -= MENU[command]["ingredients"]["water"]
             if command != "espresso":
                 milk_amount -= MENU[command]["ingredients"]["milk"]
