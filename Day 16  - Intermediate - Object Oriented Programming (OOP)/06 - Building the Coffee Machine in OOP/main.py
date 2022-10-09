@@ -15,8 +15,7 @@ while is_on == True:
         money_machine.report()
     elif choice == "off":
         is_on = False
-    elif choice == "espresso" or choice == "latte" or choice == "cappuccino":
-        print("")
-        is_on = False
     else:
-        print("Please pick a valid keyword.")
+        drink = menu.find_drink(choice)
+        if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+            coffee_maker.make_coffee(drink)
