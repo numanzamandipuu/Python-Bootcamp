@@ -28,3 +28,24 @@ for i in range(200):
 
 screen = Screen()
 screen.exitonclick()
+
+
+###### identical source code start ######
+
+# import turtle as t
+# import random
+
+# tim = t.Turtle()
+
+# colors = ["navy", "yellow", "firebrick", "magenta", "purple", "red", "blue", "black", "green", "indigo"]
+# directions = [0, 90, 180, 270]
+# tim.pensize(15)
+# tim.speed("fastest")
+
+# for i in range(200):
+#     tim.color(random.choice(colors))
+#     tim.forward(30)
+#     tim.setheading(random.choice(directions))
+
+
+###### identical source code end ######
