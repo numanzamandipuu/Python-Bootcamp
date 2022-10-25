@@ -5,6 +5,7 @@ tim = Turtle()
 screen = Screen()
 screen.colormode(255)
 tim.penup()
+tim.hideturtle()
 tim.goto(-212.13, -212.13)
 tim.speed(0)
 
