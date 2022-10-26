@@ -18,7 +18,6 @@ for i in range(6):
     tim.goto(x=-240, y=((i * 30) - 70))
     turtles.append(tim)
 
-
 while is_race_on:
     forward = random.randint(0, 10)
 
@@ -28,6 +27,14 @@ while is_race_on:
 
     if tim.xcor() > 220:
         is_race_on = False
+
+single_color = tim.color()
+turtle_color = single_color[0]
+
+if turtle_color == user_bet:
+    print(f"You've won! The {turtle_color} turtle is the winner!")
+else:
+    print(f"You've lost! The {turtle_color} turtle is the winner!")
 
 
 screen.exitonclick()
