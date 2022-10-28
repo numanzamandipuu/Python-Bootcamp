@@ -8,6 +8,7 @@ class Snake:
         self.segment = []
         self.create_snake()
 
+
     def create_snake(self):
         for i in range(3):
             tim = Turtle("square")
@@ -24,6 +25,3 @@ class Snake:
             self.segment[n].goto(new_x, new_y)
 
         self.segment[0].forward(MOVE_DISTANCE)
-
-        if self.segment[0].xcor() > 280:
-            game_is_on = False
