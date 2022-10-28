@@ -1,6 +1,5 @@
 from turtle import Turtle
 
-IS_GAME_ON = True
 MOVE_DISTANCE = 20
 
 class Snake:
