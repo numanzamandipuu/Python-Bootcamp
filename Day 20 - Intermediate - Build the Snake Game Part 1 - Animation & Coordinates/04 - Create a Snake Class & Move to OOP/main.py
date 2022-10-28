@@ -17,6 +17,8 @@ while game_is_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
-        
+    
+    if snake.segment[0].xcor() > 280:
+        game_is_on = False
 
 screen.exitonclick()
