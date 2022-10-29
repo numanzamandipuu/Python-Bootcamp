@@ -34,25 +34,17 @@ class Snake:
 
 
     def up(self):
-        if int(self.head.heading()) == 270:
-            pass
-        else:
+        if self.head.heading() != DOWN:
             self.head.setheading(UP)
 
     def down(self):
-        if int(self.head.heading()) == 90:
-            pass
-        else:
+        if self.head.heading() != UP:
             self.head.setheading(DOWN)
 
     def left(self):
-        if int(self.head.heading()) == 0:
-            pass
-        else:
+        if self.head.heading() != RIGHT:
             self.head.setheading(LEFT)
 
     def right(self):
-        if int(self.head.heading()) == 180:
-            pass
-        else:
+        if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
