@@ -26,6 +26,9 @@ while game_is_on:
     time.sleep(0.1)
     snake.move()
 
+    if snake.head.distance(food) < 15:
+        food.refresh()
+
     if snake.segment[0].xcor() > 280:
         game_is_on = False
 
