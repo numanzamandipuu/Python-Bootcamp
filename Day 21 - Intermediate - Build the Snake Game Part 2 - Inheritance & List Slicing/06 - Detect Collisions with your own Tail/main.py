@@ -33,6 +33,7 @@ while game_is_on:
     if snake.head.distance(food) < 15:
         scoreboard.clear()
         score += 1
+        snake.extend()
         food.refresh()
         scoreboard.score_update(score)
 
