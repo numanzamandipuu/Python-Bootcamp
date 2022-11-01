@@ -9,11 +9,8 @@ screen.title("Pong")
 screen.tracer(0)
 
 
-r_paddle = Paddle()
-l_paddle = Paddle()
-
-r_paddle.goto(x= 350, y= 0)
-l_paddle.goto(x= -350, y= 0)
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
 
 
 screen.listen()
