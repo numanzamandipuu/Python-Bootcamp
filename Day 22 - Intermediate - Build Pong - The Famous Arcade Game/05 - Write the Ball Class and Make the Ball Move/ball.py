@@ -8,6 +8,6 @@ class Ball(Turtle):
         self.color("white")
 
     def move(self):
-        y_cor = self.position()[1] + 10
-        x_cor = self.position()[0] + 10
+        y_cor = self.ycor() + 10
+        x_cor = self.xcor() + 10
         self.goto(x= x_cor, y= y_cor)
