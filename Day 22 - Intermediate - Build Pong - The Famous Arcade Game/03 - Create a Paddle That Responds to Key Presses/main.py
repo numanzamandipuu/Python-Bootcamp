@@ -5,10 +5,12 @@ screen = Screen()
 
 
 def right_tim_up():
-    right_tim.forward(20)
+    ycor_up = right_tim.position()[1] + 20
+    right_tim.goto(x= 350, y= ycor_up)
 
 def right_tim_down():
-    right_tim.forward(-20)
+    ycor_down = right_tim.position()[1] - 20
+    right_tim.goto(x= 350, y= ycor_down)
 
 
 screen.setup(height= 600, width= 800)
