@@ -38,8 +38,11 @@ while game_is_on:
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_y()
 
-    if ball.ycor() == 400:
-        game_is_on = False
+    if ball.xcor() > 380:
+        ball.reset_position()
+
+    if ball.xcor() < -380:
+        ball.reset_position()
 
 
 screen.exitonclick()
