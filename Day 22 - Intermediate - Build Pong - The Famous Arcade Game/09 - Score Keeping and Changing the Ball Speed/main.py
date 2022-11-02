@@ -28,13 +28,13 @@ screen.onkeypress(l_paddle.down, "d")
 time_sleep = 0.05
 game_is_on = True
 
+
 while game_is_on:
     
     screen.update()
     time.sleep(time_sleep)
-
-
     ball.move()
+
 
     if r_paddle.distance(ball) < 50 and ball.xcor() > 330 or l_paddle.distance(ball) < 50 and ball.xcor() < -330:
 
@@ -45,6 +45,7 @@ while game_is_on:
 
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_y()
+
 
     if ball.xcor() > 380:
         scoreboard.r_increase()

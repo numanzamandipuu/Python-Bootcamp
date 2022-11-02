@@ -1,5 +1,6 @@
 from turtle import Turtle
 
+
 class Ball(Turtle):
     def __init__(self):
         super().__init__()
@@ -8,6 +9,7 @@ class Ball(Turtle):
         self.color("white")
         self.x_move = 10
         self.y_move = 10
+
 
     def move(self):
         x_cor = self.xcor() + self.x_move
