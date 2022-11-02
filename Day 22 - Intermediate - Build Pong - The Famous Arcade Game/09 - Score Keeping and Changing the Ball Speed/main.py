@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 
@@ -14,6 +15,7 @@ screen.tracer(0)
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
+scoreboard = Scoreboard()
 
 
 screen.listen()
@@ -32,7 +34,7 @@ while game_is_on:
 
     ball.move()
 
-    if r_paddle.distance(ball) < 50 and ball.xcor() > 320 or l_paddle.distance(ball) < 50 and ball.xcor() < -320:
+    if r_paddle.distance(ball) < 50 and ball.xcor() > 330 or l_paddle.distance(ball) < 50 and ball.xcor() < -330:
         ball.bounce_x()
 
     if ball.ycor() > 280 or ball.ycor() < -280:
