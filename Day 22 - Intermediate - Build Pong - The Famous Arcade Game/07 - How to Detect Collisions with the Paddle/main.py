@@ -25,14 +25,18 @@ screen.onkeypress(l_paddle.down, "d")
 
 game_is_on = True
 while game_is_on:
+    
     screen.update()
-    time.sleep(0.1)
+    time.sleep(0.05)
 
 
     ball.move()
 
+    if r_paddle.distance(ball) < 50 and ball.xcor() > 320 or l_paddle.distance(ball) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
+
     if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce()
+        ball.bounce_y()
 
     if ball.ycor() == 400:
         game_is_on = False
