@@ -7,12 +7,17 @@ from scoreboard import Scoreboard
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
+screen.listen()
+
+tim = Player()
+
+screen.onkeypress(fun=tim.up, key="w")
+screen.onkeypress(fun=tim.down, key="s")
 
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
-
 
 
 screen.exitonclick()
