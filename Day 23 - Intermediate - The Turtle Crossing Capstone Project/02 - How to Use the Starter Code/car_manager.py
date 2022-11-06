@@ -12,17 +12,18 @@ NEW_CAR = ["yes", "no"]
 class CarManager(Turtle):
     def __init__(self):
         super().__init__()
-        self.shape("square")
-        self.penup()
-        self.y_axis = random.randint(-250, 250)
-        self.goto(x= 150, y= self.y_axis)
-        self.turtlesize(stretch_len= 2, stretch_wid= 1)
-        self.setheading(180)
         self.car_list = []
+        self.forward(STARTING_MOVE_DISTANCE)
+
 
     def car_move(self):
         self.forward(STARTING_MOVE_DISTANCE)
 
     def new_car(self):
-        self.y_axis = random.randint(-250, 250)
-        self.goto(x= 150, y= self.y_axis)
+        new_car = Turtle("square")
+        new_car.penup()
+        new_car.turtlesize(stretch_len= 2, stretch_wid= 1)
+        new_car.y_axis = random.randint(-250, 250)
+        new_car.goto(x= 150, y= new_car.y_axis)
+        new_car.setheading(180)
+        self.car_list.append(new_car)
