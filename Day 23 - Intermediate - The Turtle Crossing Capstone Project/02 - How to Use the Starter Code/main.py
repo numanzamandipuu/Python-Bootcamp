@@ -21,9 +21,8 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    car.car_list
-    car.car_move
-
+    
+ 
 
 
 
