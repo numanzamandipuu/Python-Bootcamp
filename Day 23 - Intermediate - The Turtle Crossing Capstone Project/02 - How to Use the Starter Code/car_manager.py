@@ -13,10 +13,7 @@ class CarManager(Turtle):
         super().__init__()
         self.car_list = []
         self.forward(STARTING_MOVE_DISTANCE)
-
-
-    def car_move(self):
-        self.forward(STARTING_MOVE_DISTANCE)
+        
 
     def new_car(self):
         new_car = Turtle("square")
