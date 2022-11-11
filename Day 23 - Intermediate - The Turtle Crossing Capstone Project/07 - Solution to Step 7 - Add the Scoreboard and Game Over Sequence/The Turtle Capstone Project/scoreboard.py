@@ -28,6 +28,3 @@ class Scoreboard(Turtle):
         self.goto(0, 0)
         self.color("red")
         self.write(f"GAME OVER!", align= "center", font= FONT)
-
-
-    
