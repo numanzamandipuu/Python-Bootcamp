@@ -10,3 +10,10 @@ print(data_dict)
 
 temp_list = data["temp"].to_list()
 print(temp_list)
+
+total = 0
+for i in data["temp"]:
+    total += i
+    
+avg = total / len(data["temp"])
+print(avg)
