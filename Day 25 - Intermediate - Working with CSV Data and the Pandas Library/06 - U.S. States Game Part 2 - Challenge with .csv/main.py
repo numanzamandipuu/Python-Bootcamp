@@ -10,7 +10,6 @@ img_path = "D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and
 turtle.bgpic(img_path)
 turtle.hideturtle()
 turtle.penup()
-n = 0
 correct_ans = 0
 correct_guess = []
 
@@ -19,7 +18,7 @@ data = pandas.read_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with 
 state_list = data["state"].tolist()
 
 
-while n < 50:
+while len(correct_guess) < 50:
 
     cap_answer = screen.textinput(title= f"{correct_ans}/50 States Correct", prompt= "What's another state's name?")
     answer = cap_answer.title()
@@ -35,8 +34,6 @@ while n < 50:
             correct_guess.append(answer)
     else:
         pass
-
-    n += 1
 
 
 screen.exitonclick()
