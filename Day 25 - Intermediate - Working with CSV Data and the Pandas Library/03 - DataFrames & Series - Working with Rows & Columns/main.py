@@ -1,6 +1,6 @@
 import pandas 
 
-data = pandas.read_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/02 - Reading CSV Data in Python/weather-data.csv")
+data = pandas.read_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/03 - DataFrames & Series - Working with Rows & Columns/weather-data.csv")
 
 
 # getting the data type
@@ -20,18 +20,23 @@ print(temp_list)
 print(data["temp"].mean())
 print(data["temp"].max())
 
+
 # get data in columns
 print(data["condition"])
+
 
 # get data in row
 print(data[data.temp == 14])
 print(data[data.temp == data.temp.max()])
+
 
 # creating a dataframe from scratch
 data_dict = {
     "students" : ["amy", "james", "angela"],
     "score" : [1, 2, 3]
 }
+
 data = pandas.DataFrame(data_dict)
 print(data)
-data.to_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/02 - Reading CSV Data in Python/new-data.csv")
+
+data.to_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/03 - DataFrames & Series - Working with Rows & Columns/new-data.csv")
