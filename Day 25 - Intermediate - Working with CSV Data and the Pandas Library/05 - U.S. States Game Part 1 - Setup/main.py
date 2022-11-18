@@ -12,22 +12,20 @@ turtle.hideturtle()
 turtle.penup()
 n = 0
 correct_ans = 0
-correct_guess = [""]
+correct_guess = []
 
 
 data = pandas.read_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/05 - U.S. States Game Part 1 - Setup/50_states.csv")
 state_list = data["state"].tolist()
-state_set = set(state_list)
 
 
-while n < 5:
+while n < 50:
 
     cap_answer = screen.textinput(title= f"{correct_ans}/50 States Correct", prompt= "What's another state's name?")
     answer = cap_answer.title()
-    correct_set = set(correct_guess)
 
-    if answer in state_set:
-        if answer in correct_set:
+    if answer in state_list:
+        if answer in correct_guess:
             pass
         else:
             ans_row = data[data.state == answer]
