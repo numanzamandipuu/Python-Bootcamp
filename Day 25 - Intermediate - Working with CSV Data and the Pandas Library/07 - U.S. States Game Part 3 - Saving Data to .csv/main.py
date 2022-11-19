@@ -34,3 +34,9 @@ while len(correct_guess) < 50:
 
     if answer == "Exit":
         break
+
+
+missed_state_set = set(state_list) - set(correct_guess)
+missed_state = list(missed_state_set)
+list_data = pandas.DataFrame(missed_state)
+list_data.to_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/07 - U.S. States Game Part 3 - Saving Data to .csv/states_to_learn.csv")
