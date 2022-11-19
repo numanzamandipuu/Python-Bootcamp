@@ -17,7 +17,6 @@ correct_guess = []
 data = pandas.read_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/05 - U.S. States Game Part 1 - Setup/50_states.csv")
 state_list = data["state"].tolist()
 
-
 while len(correct_guess) < 50:
 
     cap_answer = screen.textinput(title= f"{correct_ans}/50 States Correct", prompt= "What's another state's name?")
@@ -33,5 +32,5 @@ while len(correct_guess) < 50:
             correct_ans += 1
             correct_guess.append(answer)
 
-
-screen.exitonclick()
+    if answer == "Exit":
+        break
