@@ -4,7 +4,7 @@ import pandas
 
 screen = turtle.Screen()
 screen.title("U.S. States Game")
-img_path = "D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/05 - U.S. States Game Part 1 - Setup/blank_states_img.gif"
+img_path = "D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/06 - U.S. States Game Part 2 - Challenge with .csv/blank_states_img.gif"
 
 
 turtle.bgpic(img_path)
@@ -14,7 +14,7 @@ correct_ans = 0
 correct_guess = []
 
 
-data = pandas.read_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/05 - U.S. States Game Part 1 - Setup/50_states.csv")
+data = pandas.read_csv("D:/Python-Bootcamp/Day 25 - Intermediate - Working with CSV Data and the Pandas Library/06 - U.S. States Game Part 2 - Challenge with .csv/50_states.csv")
 state_list = data["state"].tolist()
 
 
