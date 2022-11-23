@@ -5,3 +5,6 @@ print(new_numbers)
 name = "dipu"
 letters_list = [letter for letter in name]
 print(letters_list)
+
+range_list = [num * 2 for num in range(1, 5)]
+print(range_list)
