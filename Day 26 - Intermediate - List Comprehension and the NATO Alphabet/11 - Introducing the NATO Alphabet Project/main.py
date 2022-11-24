@@ -1,15 +1,15 @@
-student_dict = {
-    "student": ["Angela", "James", "Lily"], 
-    "score": [56, 76, 98]
+import pandas
+
+file_path = "D:/Python-Bootcamp/Day 26 - Intermediate - List Comprehension and the NATO Alphabet/11 - Introducing the NATO Alphabet Project/nato_phonetic_alphabet.csv"
+data = pandas.read_csv(file_path)
+
+user_data = input("Enter a Word: ").upper()
+
+dict_data = {
+    row.letter :row.code for (index, row) in data.iterrows()
 }
 
-for (key, value) in student_dict.items():
-    pass
+letter_list = [n for n in user_data]
+new_list = [dict_data.get(n) for n in letter_list]
 
-import pandas
-student_data_frame = pandas.DataFrame(student_dict)
-
-for (index, row) in student_data_frame.iterrows():
-    pass
-
-{"A": "Alfa", "B": "Bravo"}
+print(new_list)
