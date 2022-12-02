@@ -23,7 +23,7 @@ window = Tk()
 window.title("Pomodoro")
 window.config(padx= 80, pady= 50, bg= YELLOW)
 
-label = Label(text= "Timer", font= (FONT_NAME, 35, "bold"), bg= YELLOW, highlightthickness= 0, fg= GREEN)
+label = Label(text= "Timer", font= (FONT_NAME, 35, "bold"), bg= YELLOW, fg= GREEN)
 label.grid(column= 2, row= 1)
 
 canvas = Canvas(width= 250, height= 270, bg= YELLOW, highlightthickness= 0)
