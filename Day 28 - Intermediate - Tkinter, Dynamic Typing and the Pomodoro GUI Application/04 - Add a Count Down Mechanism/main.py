@@ -15,7 +15,14 @@ LONG_BREAK_MIN = 20
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
+def timer_start():
+    count_down(5)
+
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
+def count_down(count):
+    canvas.itemconfig(timer_text, text= count)
+    if count > 0:
+        window.after(1000, count_down, count - 1)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -29,10 +36,10 @@ label.grid(column= 2, row= 1)
 canvas = Canvas(width= 250, height= 270, bg= YELLOW, highlightthickness= 0)
 tomato_img = PhotoImage(file= "D:/Python-Bootcamp/Day 28 - Intermediate - Tkinter, Dynamic Typing and the Pomodoro GUI Application/03 - Challenge - Complete the Application's User Interface (UI)/tomato.png")
 canvas.create_image(125, 130, image= tomato_img)
-canvas.create_text(125, 150, text= "00:00", fill= "white", font= (FONT_NAME, 35, "bold"))
+timer_text = canvas.create_text(125, 150, text= "00:00", fill= "white", font= (FONT_NAME, 35, "bold"))
 canvas.grid(column= 2, row= 2)
 
-button01 = Button(text= "Start")
+button01 = Button(text= "Start", command= timer_start)
 button01.grid(column= 1, row= 3)
 
 button02 = Button(text= "Reset")
