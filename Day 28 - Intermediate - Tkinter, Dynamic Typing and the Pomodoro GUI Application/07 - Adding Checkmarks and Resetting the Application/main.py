@@ -13,13 +13,25 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
+window_after = None
 
 
 # ---------------------------- TIMER RESET ------------------------------- # 
 
+def timer_reset():
+
+    global reps
+    window.after_cancel(window_after)
+    label.config(text= "Timer", font= (FONT_NAME, 35, "bold"), bg= YELLOW, fg= GREEN)
+    canvas.itemconfig(timer_text, text= "00:00")
+    tick_label.config(text= "")
+    reps = 0
+
+
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 
 def timer_start():
+
     global reps
     reps += 1
 
@@ -40,7 +52,6 @@ def timer_start():
         count_down(short_break_sec)
 
 
-
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 
 def count_down(count):
@@ -54,9 +65,17 @@ def count_down(count):
     canvas.itemconfig(timer_text, text= f"{count_min}:{count_sec}")
 
     if count >= 0:
-        window.after(1000, count_down, count - 1)
+        global window_after
+        window_after = window.after(1000, count_down, count - 1)
 
     elif count < 0:
+
+        if reps % 8 == 0:
+            tick_label.config(text= "")
+
+        elif reps % 2 == 1:
+            tick_label["text"] += "✔"
+
         timer_start()
 
 
@@ -78,10 +97,10 @@ canvas.grid(column= 2, row= 2)
 button01 = Button(text= "Start", command= timer_start)
 button01.grid(column= 1, row= 3)
 
-button02 = Button(text= "Reset")
+button02 = Button(text= "Reset", command= timer_reset)
 button02.grid(column= 3, row= 3)
 
-tick_label = Label(text= "✔", bg= YELLOW, fg= GREEN, font= (FONT_NAME, 25, "bold"))
+tick_label = Label(bg= YELLOW, fg= GREEN, font= (FONT_NAME, 25, "bold"))
 tick_label.grid(column= 2, row= 4)
 
 
