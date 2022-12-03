@@ -44,7 +44,7 @@ label = Label(text= "Timer", font= (FONT_NAME, 35, "bold"), bg= YELLOW, fg= GREE
 label.grid(column= 2, row= 1)
 
 canvas = Canvas(width= 250, height= 270, bg= YELLOW, highlightthickness= 0)
-tomato_img = PhotoImage(file= "D:/Python-Bootcamp/Day 28 - Intermediate - Tkinter, Dynamic Typing and the Pomodoro GUI Application/04 - Add a Count Down Mechanism/tomato.png")
+tomato_img = PhotoImage(file= "D:/Python-Bootcamp/Day 28 - Intermediate - Tkinter, Dynamic Typing and the Pomodoro GUI Application/05 - Dynamic Typing Explained/tomato.png")
 canvas.create_image(125, 130, image= tomato_img)
 timer_text = canvas.create_text(125, 150, text= "00:00", fill= "white", font= (FONT_NAME, 35, "bold"))
 canvas.grid(column= 2, row= 2)
