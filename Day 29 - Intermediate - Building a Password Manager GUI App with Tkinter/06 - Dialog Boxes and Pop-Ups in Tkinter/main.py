@@ -7,6 +7,7 @@ from tkinter import messagebox
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
+    
     website = entry_01.get()
     email = entry_02.get()
     password = entry_03.get()
