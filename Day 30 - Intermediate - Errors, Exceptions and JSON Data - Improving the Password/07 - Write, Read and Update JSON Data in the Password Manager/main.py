@@ -49,7 +49,7 @@ def save():
 
     else:
         with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/07 - Write, Read and Update JSON Data in the Password Manager/data.json", "w") as file:
-            json.dump(new_data, file)
+            json.dump(new_data, file, indent= 4)
             entry_01.delete(0, END)
             entry_02.delete(0, END)
             entry_03.delete(0, END)
