@@ -3,6 +3,7 @@ import pyperclip
 from tkinter import *
 from tkinter import messagebox
 from random import shuffle
+import json
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -36,13 +37,19 @@ def save():
     website = entry_01.get()
     email = entry_02.get()
     password = entry_03.get()
+    new_data = {
+        website: {
+            "email": email,
+            "password": password,
+        }
+    }
 
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title= "Oops!", message= "Please don't leave any fields empty!")
 
     else:
-        with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/07 - Write, Read and Update JSON Data in the Password Manager/data.txt", "a") as file:
-            file.write(f"\n{website} | {email} | {password}")
+        with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/07 - Write, Read and Update JSON Data in the Password Manager/data.json", "w") as file:
+            json.dump(new_data, file)
             entry_01.delete(0, END)
             entry_02.delete(0, END)
             entry_03.delete(0, END)
