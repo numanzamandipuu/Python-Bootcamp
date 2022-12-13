@@ -29,10 +29,10 @@ def search():
             if file_found:
                 email = data[key]["email"]
                 password = data[key]["password"]
-                json_message = f"Email: {email} \n Password: {password}"
+                json_message = f"Email: {email}\nPassword: {password}"
                 messagebox.showinfo(title= website, message= json_message)
             else:
-                messagebox.showinfo(title= "Error", message= "Sorry, No Details for the Website Exists.")
+                messagebox.showinfo(title= "Error", message= f"Sorry, No Details for the {website} Exists.")
     
     except FileNotFoundError:
         messagebox.showinfo(title= "Error", message= "Sorry, No Data File Found.")
