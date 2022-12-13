@@ -4,6 +4,8 @@ from tkinter import *
 from tkinter import messagebox
 from random import shuffle
 import json
+
+
 FILE_PATH = "D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/09 - Challenge 2 - Search for a Website in the Password Manager/data.json"
 LOGO_PATH = "D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/09 - Challenge 2 - Search for a Website in the Password Manager/logo.png"
 
@@ -11,25 +13,29 @@ LOGO_PATH = "D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and J
 # ---------------------------- SEARCH PASSWORD ------------------------------- #
 
 def search():
-    global FILE_PATH
+    
     file_found = False
-    with open(FILE_PATH, "r") as file:
-        data = json.load(file)
-        website = entry_01.get()
 
-        for data_key in data:
-            if website.lower() == data_key.lower():
-                file_found = True
-                key = data_key
+    try:
+        with open(FILE_PATH, "r") as file:
+            data = json.load(file)
+            website = entry_01.get()
 
-        if file_found:
-            email = data[key]["email"]
-            password = data[key]["password"]
-            json_message = f"Email: {email} \n Password: {password}"
-            messagebox.showinfo(title= website, message= json_message)
-        else:
-            messagebox.showinfo(title= "Error", message= "Sorry, No Data File Found.")
+            for data_key in data:
+                if website.lower() == data_key.lower():
+                    file_found = True
+                    key = data_key
 
+            if file_found:
+                email = data[key]["email"]
+                password = data[key]["password"]
+                json_message = f"Email: {email} \n Password: {password}"
+                messagebox.showinfo(title= website, message= json_message)
+            else:
+                messagebox.showinfo(title= "Error", message= "Sorry, No Details for the Website Exists.")
+    
+    except FileNotFoundError:
+        messagebox.showinfo(title= "Error", message= "Sorry, No Data File Found.")
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -60,7 +66,7 @@ def generate_password():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
-    global FILE_PATH
+
     website = entry_01.get()
     email = entry_02.get()
     password = entry_03.get()

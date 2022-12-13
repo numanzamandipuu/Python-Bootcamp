@@ -7,13 +7,17 @@
         "email": "numanzamandipuu@gmail.com",
         "password": "codeforces"
     },
-    "Python": {
+    "Microsoft": {
         "email": "numanzamandipuu@gmail.com",
-        "password": "python"
+        "password": "microsoft"
     },
-    "Reddit": {
+    "Google": {
         "email": "numanzamandipuu@gmail.com",
-        "password": "reddit"
+        "password": "google"
+    },
+    "Stack Overflow": {
+        "email": "numanzamandipuu@gmail.com",
+        "password": "stackoverflow"
     },
     "Linkedin": {
         "email": "numanzamandipuu@gmail.com",
