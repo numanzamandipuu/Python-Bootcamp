@@ -142,8 +142,8 @@ button_01 = Button(text= "Generate Password", width= 25, command= generate_passw
 button_01.grid(row= 3, column= 2)
 button_02 = Button(text= "Add", width= 59, command= save)
 button_02.grid(row= 4, column= 1, columnspan= 2)
-button_02 = Button(text= "Search", width= 25, command= search)
-button_02.grid(row= 1, column= 2)
+button_03 = Button(text= "Search", width= 25, command= search)
+button_03.grid(row= 1, column= 2)
 
 
 window.mainloop()
