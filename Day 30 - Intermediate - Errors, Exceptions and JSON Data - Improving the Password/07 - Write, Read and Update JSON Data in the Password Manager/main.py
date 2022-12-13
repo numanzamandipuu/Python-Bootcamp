@@ -48,8 +48,18 @@ def save():
         messagebox.showinfo(title= "Oops!", message= "Please don't leave any fields empty!")
 
     else:
+        with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/07 - Write, Read and Update JSON Data in the Password Manager/data.json", "r") as file:
+            
+            # Reading old data
+            data = json.load(file)
+            # Updating old data with new data
+            data.update(new_data)
+
         with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/07 - Write, Read and Update JSON Data in the Password Manager/data.json", "w") as file:
-            json.dump(new_data, file, indent= 4)
+
+            # Saving updated data
+            json.dump(data, file, indent= 4)
+            
             entry_01.delete(0, END)
             entry_02.delete(0, END)
             entry_03.delete(0, END)
