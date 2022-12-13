@@ -4,6 +4,32 @@ from tkinter import *
 from tkinter import messagebox
 from random import shuffle
 import json
+FILE_PATH = "D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/09 - Challenge 2 - Search for a Website in the Password Manager/data.json"
+LOGO_PATH = "D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/09 - Challenge 2 - Search for a Website in the Password Manager/logo.png"
+
+
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+
+def search():
+    global FILE_PATH
+    file_found = False
+    with open(FILE_PATH, "r") as file:
+        data = json.load(file)
+        website = entry_01.get()
+
+        for data_key in data:
+            if website.lower() == data_key.lower():
+                file_found = True
+                key = data_key
+
+        if file_found:
+            email = data[key]["email"]
+            password = data[key]["password"]
+            json_message = f"Email: {email} \n Password: {password}"
+            messagebox.showinfo(title= website, message= json_message)
+        else:
+            messagebox.showinfo(title= "Error", message= "Sorry, No Data File Found.")
+
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -34,6 +60,7 @@ def generate_password():
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
+    global FILE_PATH
     website = entry_01.get()
     email = entry_02.get()
     password = entry_03.get()
@@ -49,7 +76,7 @@ def save():
 
     else:
         try:
-            with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/08 - Challenge 1 - Handling Exceptions in the Password Manager/data.json", "r") as file:
+            with open(FILE_PATH, "r") as file:
                 
                 # Reading old data
                 data = json.load(file)
@@ -57,13 +84,13 @@ def save():
                 data.update(new_data)
 
         except FileNotFoundError:
-            with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/08 - Challenge 1 - Handling Exceptions in the Password Manager/data.json", "w") as file:
+            with open(FILE_PATH, "w") as file:
 
                 # Creating a file with new data
                 json.dump(new_data, file, indent= 4)
 
         else:
-            with open("D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/08 - Challenge 1 - Handling Exceptions in the Password Manager/data.json", "w") as file:
+            with open(FILE_PATH, "w") as file:
 
                 # Saving updated data
                 json.dump(data, file, indent= 4)
@@ -82,7 +109,7 @@ window.title("Password Manager")
 window.config(padx= 50, pady= 50)
 
 canvas = Canvas(height= 200, width= 200)
-img_path = PhotoImage(file= "D:/Python-Bootcamp/Day 30 - Intermediate - Errors, Exceptions and JSON Data - Improving the Password/08 - Challenge 1 - Handling Exceptions in the Password Manager/logo.png")
+img_path = PhotoImage(file= LOGO_PATH)
 canvas.create_image(100, 100, image= img_path)
 canvas.grid(row= 0, column= 1, sticky= "e")
 
@@ -96,9 +123,9 @@ label_03 = Label(text= "Password :")
 label_03.config(padx= 5, pady= 5)
 label_03.grid(row= 3, column= 0, sticky= "w")
 
-entry_01 = Entry(width= 70)
+entry_01 = Entry(width= 38)
 entry_01.focus()
-entry_01.grid(row= 1, column= 1, columnspan= 2, sticky= "w")
+entry_01.grid(row= 1, column= 1, sticky= "w")
 entry_02 = Entry(width= 70)
 entry_02.insert(0, "numanzamandipuu@gmail.com")
 entry_02.grid(row= 2, column= 1, columnspan= 2, sticky= "w")
@@ -109,6 +136,8 @@ button_01 = Button(text= "Generate Password", width= 25, command= generate_passw
 button_01.grid(row= 3, column= 2)
 button_02 = Button(text= "Add", width= 59, command= save)
 button_02.grid(row= 4, column= 1, columnspan= 2)
+button_02 = Button(text= "Search", width= 25, command= search)
+button_02.grid(row= 1, column= 2)
 
 
 window.mainloop()
