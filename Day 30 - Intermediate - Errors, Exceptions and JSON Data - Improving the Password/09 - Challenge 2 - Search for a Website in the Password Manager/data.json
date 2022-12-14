@@ -1,0 +1,26 @@
+{
+    "GitHub": {
+        "email": "numanzamandipuu@gmail.com",
+        "password": "github"
+    },
+    "Codeforces": {
+        "email": "numanzamandipuu@gmail.com",
+        "password": "codeforces"
+    },
+    "Microsoft": {
+        "email": "numanzamandipuu@gmail.com",
+        "password": "microsoft"
+    },
+    "Google": {
+        "email": "numanzamandipuu@gmail.com",
+        "password": "google"
+    },
+    "Stack Overflow": {
+        "email": "numanzamandipuu@gmail.com",
+        "password": "stackoverflow"
+    },
+    "Linkedin": {
+        "email": "numanzamandipuu@gmail.com",
+        "password": "linkedin"
+    }
+}
