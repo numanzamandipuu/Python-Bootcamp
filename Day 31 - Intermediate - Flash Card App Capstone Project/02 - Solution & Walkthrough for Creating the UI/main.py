@@ -1,10 +1,11 @@
 from tkinter import *
 
 
-FRONT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/card_front.png"
-BACK = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/card_back.png"
-RIGHT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/right.png"
-WRONG = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/wrong.png"
+FRONT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/Images/card_front.png"
+BACK = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/Images/card_back.png"
+RIGHT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/Images/right.png"
+WRONG = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/Images/wrong.png"
+DATA = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/Data/en_to_bn.csv"
 BACKGROUND_COLOR = "#B1DDC6"
 
 
