@@ -5,20 +5,21 @@ FRONT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Proj
 BACK = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/card_back.png"
 RIGHT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/right.png"
 WRONG = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/02 - Solution & Walkthrough for Creating the UI/wrong.png"
+BACKGROUND_COLOR = "#B1DDC6"
 
 
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
 window.title("Flashy")
-window.config(padx= 100, pady= 50)
+window.config(padx= 100, pady= 50, bg= BACKGROUND_COLOR)
 
 front_img = PhotoImage(file= FRONT)
 back_img = PhotoImage(file= BACK)
 right_img = PhotoImage(file= RIGHT)
 wrong_img = PhotoImage(file= WRONG)
 
-canvas = Canvas(width= 450, height= 300)
+canvas = Canvas(width= 450, height= 300, bg= BACKGROUND_COLOR, highlightthickness= 0)
 canvas.create_image(225, 150, image= back_img)
 canvas.create_text(225, 115, text= "Title", font= ("Ariel", 25, "italic"))
 canvas.create_text(225, 175, text= "Word", font= ("Ariel", 40, "bold"))
