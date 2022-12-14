@@ -20,7 +20,7 @@ wrong_img = PhotoImage(file= WRONG)
 
 
 canvas = Canvas(width= 450, height= 300)
-canvas.create_image(225, 150, image= front_img)
+canvas.create_image(225, 150, image= back_img)
 canvas.grid(row= 1, column= 1, columnspan= 2)
 
 right_button = Button(image= right_img, highlightthickness= 0)
