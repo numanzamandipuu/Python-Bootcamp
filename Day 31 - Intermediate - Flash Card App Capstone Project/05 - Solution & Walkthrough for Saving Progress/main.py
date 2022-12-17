@@ -8,8 +8,12 @@ BACK = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Proje
 RIGHT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Images/right.png"
 WRONG = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Images/wrong.png"
 DATA = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Data/en_to_bn.csv"
+LEARNED = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Data/learned.csv"
+TO_LEARN = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Data/to_learn.csv"
+
 BACKGROUND_COLOR = "#B1DDC6"
 card = {}
+learned_list = []
 
 
 # ---------------------------- NEW FLASH CARD ------------------------------- #
@@ -36,6 +40,14 @@ def flip_card():
     canvas.itemconfig(title_text, text= "Bangla", fill= "black")
     canvas.itemconfig(card_img, image= front_img)
 
+    
+# ---------------------------- LEARNED WORDS ------------------------------- #
+
+def learned():
+    global learned_list
+    if card not in learned_list:
+        learned_list.append(card)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -54,7 +66,7 @@ title_text = canvas.create_text(225, 115, text= "", font= ("Ariel", 25, "italic"
 word_text = canvas.create_text(225, 175, text= "", font= ("Ariel", 40, "bold"))
 canvas.grid(row= 1, column= 1, columnspan= 2)
 
-right_button = Button(image= right_img, highlightthickness= 0, command= flash_card)
+right_button = Button(image= right_img, highlightthickness= 0, command= learned)
 right_button.grid(row= 2, column= 1)
 wrong_button = Button(image= wrong_img, highlightthickness= 0, command= flash_card)
 wrong_button.grid(row= 2, column= 2)
