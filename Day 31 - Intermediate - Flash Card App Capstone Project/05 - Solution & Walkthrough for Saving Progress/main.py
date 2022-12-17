@@ -48,6 +48,8 @@ def learned():
     if card not in learned_list:
         learned_list.append(card)
 
+    print(learned_list)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
