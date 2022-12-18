@@ -13,19 +13,22 @@ TO_LEARN = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone P
 
 BACKGROUND_COLOR = "#B1DDC6"
 card = {}
-learned_list = []
 
 
 # ---------------------------- NEW FLASH CARD ------------------------------- #
 
-dataframe = pd.read_csv(DATA)
-data = dataframe.to_dict(orient= "records")
+try:
+    dataframe = pd.read_csv(TO_LEARN)
+except FileNotFoundError:
+    dataframe = pd.read_csv(DATA)
+finally:
+    data = dataframe.to_dict(orient= "records")
+
 
 def flash_card():
     global card, loop
     window.after_cancel(loop)
-    index = random.randint(0, 499)
-    card = data[index]
+    card = random.choice(data)
     canvas.itemconfig(word_text, text= card["ENGLISH"], fill= "white")
     canvas.itemconfig(title_text, text= "English", fill= "white")
     canvas.itemconfig(card_img, image= back_img)
@@ -44,12 +47,14 @@ def flip_card():
 # ---------------------------- LEARNED WORDS ------------------------------- #
 
 def learned():
-    global learned_list
-    if card not in learned_list:
-        learned_list.append(card)
+    data.remove(card)
 
-    print(learned_list)
+    to_learn_df = pd.DataFrame(data)
+    to_learn_df.to_csv(TO_LEARN, index= False)
+    flash_card()
 
+
+# ---------------------------- LEARNED WORDS ------------------------------- #
 
 # ---------------------------- UI SETUP ------------------------------- #
 
