@@ -8,7 +8,6 @@ BACK = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Proje
 RIGHT = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Images/right.png"
 WRONG = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Images/wrong.png"
 DATA = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Data/en_to_bn.csv"
-LEARNED = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Data/learned.csv"
 TO_LEARN = "D:/Python-Bootcamp/Day 31 - Intermediate - Flash Card App Capstone Project/05 - Solution & Walkthrough for Saving Progress/Data/to_learn.csv"
 
 BACKGROUND_COLOR = "#B1DDC6"
@@ -23,7 +22,6 @@ except FileNotFoundError:
     dataframe = pd.read_csv(DATA)
 finally:
     data = dataframe.to_dict(orient= "records")
-
 
 def flash_card():
     global card, loop
@@ -48,13 +46,10 @@ def flip_card():
 
 def learned():
     data.remove(card)
-
     to_learn_df = pd.DataFrame(data)
     to_learn_df.to_csv(TO_LEARN, index= False)
     flash_card()
 
-
-# ---------------------------- LEARNED WORDS ------------------------------- #
 
 # ---------------------------- UI SETUP ------------------------------- #
 
